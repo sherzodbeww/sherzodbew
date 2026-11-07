@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sherzodbek — bew.</title>
+<meta name="description" content="Sherzodbek (bew) — videograf, montajchi va kontentmeyker. Qoʻqon.">
+<meta name="theme-color" content="#0b0a09">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sherzodbek — bew.">
+<meta property="og:description" content="Videograf, montajchi va kontentmeyker. Qoʻqon.">
+<meta property="og:url" content="https://sherzodbeww.github.io/sherzodbew/">
+<meta property="og:image" content="https://sherzodbeww.github.io/sherzodbew/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0a09'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='36' fill='%23dcbf86'%3Eb.%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a09; --bg2:#12100e; --panel:#161411; --line:#2a2520;
+  --ivory:#efe7da; --muted:#9a9084; --gold:#c9a86a; --gold2:#e6cf9c; --gold-dim:rgba(201,168,106,.14);
+  --wine:#5b1a24; --rec:#e0453a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ivory);font-family:Inter,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.mono{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:11px}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.tag{display:inline-flex;align-items:center;gap:10px;color:var(--gold);font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.tag::before{content:"";width:22px;height:1px;background:var(--gold)}
+/* solid gold (gradient text is invisible during Swarm Rebuild) */
+.gold-text{color:#dcbf86;text-shadow:0 1px 0 rgba(0,0,0,.35),0 0 24px rgba(201,168,106,.18)}
+
+/* film grain */
+.grain{position:fixed;inset:-50%;pointer-events:none;z-index:50;opacity:.06;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}100%{transform:translate(1%,3%)}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(11,10,9,.72);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:baseline;gap:2px;font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:600;font-style:italic}
+.logo span{color:var(--gold)}
+.links{display:flex;gap:30px;font-size:13px;color:var(--muted)}
+.links a{position:relative}
+.links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--gold);transition:width .3s}
+.links a:hover{color:var(--ivory)} .links a:hover::after{width:100%}
+.nav-cta{border:1px solid var(--gold);color:var(--gold);padding:9px 16px;border-radius:40px;font-size:12px;font-weight:600}
+.nav-cta:hover{background:var(--gold);color:#111}
+
+/* hero */
+.hero{position:relative;min-height:calc(100vh - 64px);display:flex;align-items:flex-end;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(620px 520px at 50% 58%,rgba(201,168,106,.22),transparent 70%),
+             radial-gradient(900px 500px at 50% 110%,rgba(91,26,36,.55),transparent 70%)}
+.big{position:absolute;left:50%;top:7%;transform:translateX(-50%);white-space:nowrap;
+  font-family:Anton,Impact,sans-serif;font-size:clamp(90px,19vw,290px);line-height:.85;letter-spacing:.02em;
+  color:transparent;-webkit-text-stroke:1.5px rgba(201,168,106,.55);user-select:none}
+.big.fill{color:rgba(201,168,106,.06)}
+.hero-inner{position:relative;width:100%;display:grid;grid-template-columns:1fr minmax(320px,520px) 1fr;align-items:end;gap:24px}
+.person{position:relative;align-self:end;z-index:2}
+.person img{display:block;width:100%;height:auto;max-height:84vh;object-fit:contain;object-position:bottom;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.6)) saturate(1.05) contrast(1.03);
+  -webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent 100%);mask-image:linear-gradient(to bottom,#000 82%,transparent 100%)}
+/* viewfinder */
+.vf{position:absolute;inset:4% -6% 8% -6%;pointer-events:none;z-index:3}
+.vf i{position:absolute;width:34px;height:34px;border-color:var(--gold2);border-style:solid;opacity:.85}
+.vf i:nth-child(1){top:0;left:0;border-width:2px 0 0 2px}
+.vf i:nth-child(2){top:0;right:0;border-width:2px 2px 0 0}
+.vf i:nth-child(3){bottom:0;left:0;border-width:0 0 2px 2px}
+.vf i:nth-child(4){bottom:0;right:0;border-width:0 2px 2px 0}
+.vf .rec{position:absolute;top:10px;left:46px;display:flex;align-items:center;gap:8px;color:var(--ivory)}
+.vf .rec b{width:9px;height:9px;border-radius:50%;background:var(--rec);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.vf .tc{position:absolute;top:10px;right:46px;color:var(--ivory)}
+.vf .meta{position:absolute;bottom:12px;left:46px;right:46px;display:flex;justify-content:space-between;color:var(--gold2)}
+.vf .focus{position:absolute;left:50%;top:18%;width:70px;height:56px;transform:translateX(-50%);border:1px solid rgba(230,207,156,.7)}
+.side{position:relative;z-index:4;padding-bottom:9vh}
+.hello{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:30px;color:var(--muted)}
+.name{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(52px,6vw,86px);line-height:.95;margin:6px 0 10px}
+.nick{display:flex;gap:10px;align-items:center;margin-bottom:22px;color:var(--muted)}
+.nick b{color:var(--gold);font-weight:700}
+.lead{color:#cfc6b8;font-size:15.5px;max-width:360px}
+.lead b{color:var(--ivory);font-weight:600}
+.btns{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:13px 22px;border-radius:40px;border:1px solid var(--line);background:var(--panel);cursor:pointer;transition:.25s}
+.btn.gold{background:linear-gradient(120deg,#b8925a,#e6cf9c 50%,#b8925a);background-size:200% 100%;border-color:transparent;color:#17130d}
+.btn.gold:hover{background-position:100% 0}
+.btn:not(.gold):hover{border-color:var(--gold);color:var(--gold)}
+.side.right{text-align:right;justify-self:end}
+.role-list{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.role-list div{font-family:"Cormorant Garamond",serif;font-size:30px;line-height:1.15}
+.role-list div em{color:var(--gold);font-style:italic}
+.stats{display:flex;gap:28px;justify-content:flex-end;margin-top:30px}
+.stat strong{display:block;font-family:"Cormorant Garamond",serif;font-size:40px;line-height:1;font-weight:600}
+.stat span{font-size:11px;color:var(--muted)}
+.scroll{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:5;color:var(--muted)}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:18px 0}
+.track{display:flex;gap:46px;width:max-content;animation:slide 32s linear infinite}
+.track span{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:34px;white-space:nowrap;color:#d9cfbf}
+.track span:nth-child(even){font-family:Inter;font-style:normal;font-size:16px;color:var(--gold);align-self:center}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:120px 0 20px}
+.sec-index{color:var(--muted);margin-bottom:22px}
+h2{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(40px,5vw,64px);line-height:1.05;margin:14px 0 16px}
+h2 em{color:var(--gold)}
+.sub{color:var(--muted);max-width:640px}
+.about{display:grid;grid-template-columns:1.35fr 1fr;gap:60px;margin-top:40px}
+.about p{color:#cfc6b8;margin-bottom:18px;font-size:16px}
+.about p b{color:var(--ivory);font-weight:600}
+.dropcap::first-letter{float:left;font-family:"Cormorant Garamond",serif;font-size:76px;line-height:.8;padding:6px 10px 0 0;color:var(--gold)}
+blockquote{margin-top:26px;padding:22px 26px;border:1px solid var(--line);border-left:2px solid var(--gold);background:var(--bg2);font-family:"Cormorant Garamond",serif;font-size:26px;font-style:italic;line-height:1.3}
+blockquote small{display:block;font-family:Inter;font-style:normal;font-size:13px;color:var(--muted);margin-top:8px}
+.points{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.point{padding:20px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:8px}
+.point .n{font-family:"Cormorant Garamond",serif;font-size:26px;color:var(--gold);line-height:1}
+.point h5{font-size:15px;font-weight:600}
+.point p{font-size:13.5px;color:var(--muted);margin-top:4px}
+
+/* timeline (montaj) */
+.flag{margin-top:40px;background:linear-gradient(180deg,#171410,#100e0c);border:1px solid var(--line);border-radius:18px;padding:34px}
+.flag h3{font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:600;margin:12px 0 8px}
+.flag .desc{color:#cfc6b8;max-width:780px}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0 34px}
+.num{border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center;background:#0d0c0a}
+.num strong{display:block;font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:600;color:var(--gold2)}
+.num span{font-size:11.5px;color:var(--muted)}
+.tl{border:1px solid var(--line);border-radius:12px;background:#0b0a09;padding:14px 14px 18px;position:relative;overflow:hidden}
+.tl-head{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:10px}
+.ruler{display:grid;grid-template-columns:52px repeat(6,1fr);color:#5d554b;font-size:10px;margin-bottom:6px}
+.trk{display:grid;grid-template-columns:52px 1fr;align-items:center;gap:0;margin-top:6px}
+.trk .lbl{color:var(--muted)}
+.lane{position:relative;height:38px;background:#141210;border-radius:6px}
+.clip{position:absolute;top:4px;bottom:4px;border-radius:5px;padding:0 10px;display:flex;align-items:center;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;overflow:hidden;border:1px solid transparent;transition:.2s}
+.clip.v{background:linear-gradient(180deg,#3a3122,#2a2318);color:var(--gold2);border-color:#4b3f2b}
+.clip.v2{background:linear-gradient(180deg,#3e1c22,#2c1418);color:#e7b7bd;border-color:#5b2a33}
+.clip.a{background:repeating-linear-gradient(90deg,#1e2a24 0 3px,#24342c 3px 5px);color:#a9cdb8;border-color:#2f4439}
+.clip.on,.clip:hover{border-color:var(--gold2);box-shadow:0 0 0 1px var(--gold2) inset}
+.tracks{position:relative}
+.playhead{position:absolute;top:14px;bottom:0;width:2px;background:var(--rec);left:52px;animation:play 14s linear infinite;z-index:2;pointer-events:none}
+.playhead::before{content:"";position:absolute;top:-6px;left:-5px;border:6px solid transparent;border-top-color:var(--rec)}
+@keyframes play{from{left:52px}to{left:calc(100% - 2px)}}
+.tl-info{margin-top:16px;display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start;border-top:1px solid var(--line);padding-top:16px}
+.tl-info .k{color:var(--gold)}
+.tl-info h4{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600;line-height:1.1}
+.tl-info p{color:var(--muted);font-size:14px;margin-top:4px}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.proj{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;transition:.3s}
+.proj:hover{border-color:rgba(201,168,106,.5);transform:translateY(-3px)}
+.proj h4{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;margin:12px 0 8px;line-height:1.1}
+.proj p{font-size:13.5px;color:var(--muted)}
+.proj ul{margin:14px 0 0 16px;font-size:13px;color:#cfc6b8}
+.proj .foot{display:flex;justify-content:space-between;margin-top:auto;padding-top:20px;color:var(--muted)}
+
+.filters{display:flex;gap:8px;margin:22px 0 6px;flex-wrap:wrap}
+.chip{padding:9px 16px;border-radius:40px;border:1px solid var(--line);color:var(--muted);cursor:pointer;background:transparent}
+.chip.on{background:var(--gold);border-color:var(--gold);color:#17130d}
+.matrix{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.cell{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;transition:.3s}
+.cell:hover{border-color:rgba(201,168,106,.5)}
+.cell .t{display:flex;justify-content:space-between;color:var(--muted)}
+.cell .t .k{color:var(--gold)}
+.cell h4{font-size:16px;margin:12px 0 6px;font-weight:600}
+.cell p{font-size:12.8px;color:var(--muted)}
+.cell .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.cell .pills span{font-family:"JetBrains Mono",monospace;font-size:10px;padding:4px 8px;border:1px solid var(--line);border-radius:20px;color:#cfc6b8}
+.cell.hide{display:none}
+
+/* rubik */
+.fun{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-top:60px;padding:26px 30px;border:1px dashed var(--line);border-radius:16px}
+.cube{display:grid;grid-template-columns:repeat(3,22px);gap:3px;padding:6px;background:#000;border-radius:6px;cursor:pointer}
+.cube i{width:22px;height:22px;border-radius:3px;transition:background .25s}
+.fun h4{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:600;line-height:1.1}
+.fun p{color:var(--muted);font-size:14px}
+
+.contact{text-align:center;padding:150px 0 70px;position:relative}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 55%,rgba(201,168,106,.12),transparent 70%);pointer-events:none}
+.contact h2{font-size:clamp(46px,7vw,92px)}
+.contact .sub{margin:0 auto}
+.cards-c{display:flex;gap:16px;justify-content:center;margin-top:40px;flex-wrap:wrap;position:relative}
+.cc{min-width:280px;text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:22px 24px;transition:.3s}
+.cc:hover{border-color:var(--gold)}
+.cc .mono{color:var(--muted)}
+.cc strong{display:block;font-size:22px;font-weight:600;margin:8px 0 14px;letter-spacing:.01em}
+.cc .row{display:flex;gap:8px}
+.cc .row .btn{padding:9px 16px;font-size:12px}
+footer{text-align:center;color:#5d554b;font-size:12px;padding:30px 0 50px;border-top:1px solid var(--line)}
+
+@media (max-width:1000px){
+  .hero{min-height:auto;padding-top:30px}
+  .hero-inner{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .side{padding-bottom:20px}
+  .vf{inset:4% 2% 8% 2%}
+  .side.left{order:1;padding-top:clamp(70px,17vw,170px)} .person{order:2;max-width:440px} .side.right{order:3;text-align:center;justify-self:center;padding-bottom:40px}
+  .role-list{align-items:center} .stats{justify-content:center}
+  .nick,.btns{justify-content:center} .lead{margin:0 auto}
+  .big{top:2%}
+  .about{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .matrix{grid-template-columns:1fr 1fr}
+  .links{display:none}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .grid3{grid-template-columns:1fr}
+  .nums{grid-template-columns:1fr 1fr}
+  .flag{padding:20px}
+  .tl-info{grid-template-columns:1fr}
+  .clip{font-size:10.5px;padding:0 6px}
+  .vf .meta span:nth-child(2){display:none}
+  .fun{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .cc{min-width:0;width:100%}
+}
+/* while Swarm Rebuild runs */
+.swarm-on .grain{display:none}
+.swarm-on .track,.swarm-on .playhead,.swarm-on .vf .rec b{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.track,.playhead,.grain{animation:none}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">bew<span>.</span></a>
+    <div class="links">
+      <a href="#about">Men haqimda</a>
+      <a href="#work">Ishlarim</a>
+      <a href="#matrix">Koʻnikmalar</a>
+      <a href="#contact">Aloqa</a>
+    </div>
+    <a class="nav-cta" href="#contact">Bogʻlanish</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="big" aria-hidden="true">PORTFOLIO</div>
+  <div class="wrap hero-inner">
+    <div class="side left">
+      <div class="hello">Salom, men</div>
+      <h1 class="name gold-text">Sherzodbek</h1>
+      <div class="nick mono"><span>nik:</span><b>sherzodbew</b><span>· qisqasi</span><b>bew</b></div>
+      <p class="lead">Qoʻqonda yashayman va <b>BIR Group</b> marketing jamoasida ishlayman. Qurilish loyihalari uchun <b>reklama, target va otziv videolarini</b> suratga olaman va montaj qilaman.</p>
+      <div class="btns">
+        <a class="btn gold" href="#work">Ishlarimni koʻrish →</a>
+        <a class="btn" href="tel:+998883266633">Qoʻngʻiroq qilish</a>
+      </div>
+    </div>
+
+    <div class="person">
+      <img src="sherzod-cutout.webp" alt="Sherzodbek portreti" width="1017" height="1585">
+      <div class="vf" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+        <div class="rec mono"><b></b>REC</div>
+        <div class="tc mono" id="tc">00:00:00:00</div>
+        <div class="focus"></div>
+        <div class="meta mono"><span>4K · 25P</span><span>ISO 800 · 1/50</span><span>F1.8</span></div>
+      </div>
+    </div>
+
+    <div class="side right">
+      <div class="role-list">
+        <div>Videograf</div>
+        <div><em>Montajchi</em></div>
+        <div>Kontentmeyker</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong class="gold-text">7/7</strong><span>har kuni ishda</span></div>
+        <div class="stat"><strong class="gold-text">28s</strong><span>Rubik rekordi</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll mono">↓ pastga</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Gʻoya</span><span>✦</span><span>Ssenariy</span><span>✦</span><span>Syomka</span><span>✦</span><span>Montaj</span><span>✦</span><span>Rang</span><span>✦</span><span>Motion</span><span>✦</span><span>Ovoz</span><span>✦</span><span>Natija</span><span>✦</span>
+    <span>Gʻoya</span><span>✦</span><span>Ssenariy</span><span>✦</span><span>Syomka</span><span>✦</span><span>Montaj</span><span>✦</span><span>Rang</span><span>✦</span><span>Motion</span><span>✦</span><span>Ovoz</span><span>✦</span><span>Natija</span><span>✦</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-index mono">01 / 04 — Men haqimda</div>
+    <span class="tag">Shaxsiy profil</span>
+    <h2>Telefondan boshlangan <em>yoʻl</em></h2>
+    <div class="about">
+      <div>
+        <p>Men <b>Sherzodbek</b>man. Internetda <b>sherzodbew</b>, yaqinlarim uchun shunchaki <b>bew</b>. Ishni telefondan, mobilografiyadan boshlaganman. Keyin professional kameraga oʻtdim va bugun BIR Group marketing jamoasida videograf, montajchi va kontentmeyker boʻlib ishlayman.</p>
+        <p>Jamoadagi eng yoshman, shuning uchun har kuni koʻproq oʻrganishga harakat qilaman. Qurilish obyektlarida, ofisda, tadbirlarda va boshqa shaharlardagi syomkalarda ishlayman. <b>Umidjon Nazarov</b>ning shaxsiy kontentini ham tayyorlayman.</p>
+        <p>Takroriy va zerikarli videolarni yoqtirmayman. Men uchun eng muhimi: <b>original gʻoya, kreativ montaj va sifat</b>.</p>
+        <blockquote>"Try fast. Fail fast."<small>Tezroq sinab koʻr, xatoni tezroq top, tezroq oʻs.</small></blockquote>
+      </div>
+      <div class="points">
+        <div class="point"><span class="n">i.</span><div><h5>Hikoya birinchi oʻrinda</h5><p>Har bir kadr nima uchun kerakligini bilaman: hook, ritm va aniq CTA.</p></div></div>
+        <div class="point"><span class="n">ii.</span><div><h5>Kino tilida oʻylash</h5><p>Rejissura, operatorlik, montaj va rang. Game of Thrones va MCU’dan ilhom olaman.</p></div></div>
+        <div class="point"><span class="n">iii.</span><div><h5>Samimiylik</h5><p>Yolgʻon va asossiz gapni yoqtirmayman. Videoda ham, ishda ham.</p></div></div>
+        <div class="point"><span class="n">iv.</span><div><h5>AI bilan ishlash</h5><p>Montaj, transkripsiya va gʻoya topishda sun’iy intellektni yordamchi qilib ishlataman.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-index mono">02 / 04 — Ishlar</div>
+    <span class="tag">Asosiy loyihalar</span>
+    <h2>Eng muhim <em>ishlarim</em></h2>
+    <p class="sub">Qurilish, koʻchmas mulk va shaxsiy brend uchun har kuni chiqadigan kontent.</p>
+
+    <div class="flag">
+      <span class="tag">Asosiy loyiha</span>
+      <h3>SABUM — qurilishni videoda koʻrsatish</h3>
+      <p class="desc">BIR Group’ning SABUM qurilish loyihasi uchun toʻliq video ishlab chiqarish: gʻoyadan syomkagacha, montajdan tayyor reels’gacha. Qoʻqon City, parkovka, 3D vizualizatsiya va "Qurilish sirlari" seriyasi shular jumlasidan.</p>
+      <div class="nums">
+        <div class="num"><strong>Reels</strong><span>Instagram va Shorts</span></div>
+        <div class="num"><strong>Target</strong><span>reklama videolari</span></div>
+        <div class="num"><strong>Otziv</strong><span>mijozlar fikri</span></div>
+        <div class="num"><strong>3D</strong><span>Qoʻqon City vizuali</span></div>
+      </div>
+
+      <div class="tl" id="tl">
+        <div class="tl-head mono"><span>Montaj timeline · QoqonCity_Parkovka_v5</span><span>klipni bosing</span></div>
+        <div class="tracks">
+        <div class="ruler mono"><span></span><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span><span>00:20</span><span>00:25</span></div>
+        <div class="playhead"></div>
+        <div class="trk"><span class="lbl mono">V2</span><div class="lane">
+          <div class="clip v2" data-i="3" style="left:30%;width:24%">Motion / titr</div>
+          <div class="clip v2" data-i="4" style="left:62%;width:18%">Rang</div>
+        </div></div>
+        <div class="trk"><span class="lbl mono">V1</span><div class="lane">
+          <div class="clip v" data-i="0" style="left:0;width:14%">Gʻoya</div>
+          <div class="clip v" data-i="1" style="left:14.5%;width:15%">Ssenariy</div>
+          <div class="clip v" data-i="2" style="left:30%;width:32%">Syomka · FX30</div>
+          <div class="clip v" data-i="5" style="left:62.5%;width:37.5%">Natija · reels</div>
+        </div></div>
+        <div class="trk"><span class="lbl mono">A1</span><div class="lane">
+          <div class="clip a" data-i="6" style="left:8%;width:88%">Musiqa · SFX · ovoz</div>
+        </div></div>
+        </div>
+        <div class="tl-info" id="tlInfo"></div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="proj">
+        <span class="tag">Shaxsiy brend</span>
+        <h4>Umidjon Nazarov kontenti</h4>
+        <p>SABUM asoschisining shaxsiy kontenti, tadbir va uchrashuvlar syomkasi.</p>
+        <ul><li>Shaxsiy brend videolari</li><li>Tadbir va uchrashuvlar syomkasi</li></ul>
+        <div class="foot mono"><span>Syomka</span><span>Montaj</span></div>
+      </div>
+      <div class="proj">
+        <span class="tag">Ta’lim</span>
+        <h4>Mobilografiya kursi</h4>
+        <p>Bir ta’lim kursida 3-patokning 2-guruhiga ustozlik: telefonda chiroyli syomka va montaj.</p>
+        <ul><li>Telefonda syomka</li><li>Telefonda montaj</li></ul>
+        <div class="foot mono"><span>Ustoz</span><span>2-guruh</span></div>
+      </div>
+      <div class="proj">
+        <span class="tag">AI tajriba</span>
+        <h4>Shaxsiy AI yordamchi</h4>
+        <p>Telegram’da ishlaydigan shaxsiy AI yordamchi va montajni avtomatlashtirish boʻyicha tajribalar.</p>
+        <ul><li>Telegram bot</li><li>AI transkripsiya</li><li>After Effects avtomatizatsiyasi</li></ul>
+        <div class="foot mono"><span>Tajriba</span><span>2026</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="matrix">
+  <div class="wrap">
+    <div class="sec-index mono">03 / 04 — Koʻnikmalar</div>
+    <span class="tag">Asboblar va koʻnikmalar</span>
+    <h2>Nimalar <em>qila olaman</em></h2>
+    <p class="sub">Kamera, montaj dasturlari va kontent gʻoyasi: bitta video uchun kerak boʻladigan hamma narsa.</p>
+    <div class="filters" id="filters">
+      <button class="chip mono on" data-f="all">Hammasi (8)</button>
+      <button class="chip mono" data-f="shoot">Syomka</button>
+      <button class="chip mono" data-f="edit">Montaj</button>
+      <button class="chip mono" data-f="content">Kontent</button>
+    </div>
+    <div class="matrix" id="cells">
+      <div class="cell" data-c="shoot"><div class="t mono"><span class="k">Kamera</span><span>01</span></div><h4>Sony FX30</h4><p>Asosiy kameram: kinematografik, chiroyli kadr uchun.</p><div class="pills"><span>4K</span><span>Kino kadr</span></div></div>
+      <div class="cell" data-c="shoot"><div class="t mono"><span class="k">Stabilizator</span><span>02</span></div><h4>DJI Ronin RS4</h4><p>Silliq harakat: obyekt boʻylab yurish va reveal kadrlari.</p><div class="pills"><span>Gimbal</span><span>Reveal</span></div></div>
+      <div class="cell" data-c="shoot"><div class="t mono"><span class="k">Ovoz</span><span>03</span></div><h4>Hollyland Lark M2</h4><p>Intervyu va otziv uchun toza ovoz.</p><div class="pills"><span>Mikrofon</span><span>Intervyu</span></div></div>
+      <div class="cell" data-c="shoot"><div class="t mono"><span class="k">Mobil</span><span>04</span></div><h4>iPhone 14 Pro</h4><p>Tezkor syomka va mobilografiya darslari.</p><div class="pills"><span>Mobilografiya</span></div></div>
+      <div class="cell" data-c="edit"><div class="t mono"><span class="k">Montaj</span><span>05</span></div><h4>DaVinci Resolve</h4><p>Asosiy montaj va rang berish dasturim.</p><div class="pills"><span>Montaj</span><span>Color</span></div></div>
+      <div class="cell" data-c="edit"><div class="t mono"><span class="k">Motion</span><span>06</span></div><h4>After Effects</h4><p>Motion grafika, kinetik matn va 3D. Hozir chuqur oʻrganyapman.</p><div class="pills"><span>Motion</span><span>3D</span></div></div>
+      <div class="cell" data-c="edit"><div class="t mono"><span class="k">Tezkor</span><span>07</span></div><h4>CapCut va Premiere Pro</h4><p>Tez chiqishi kerak boʻlgan reels va shorts uchun.</p><div class="pills"><span>Reels</span><span>Shorts</span></div></div>
+      <div class="cell" data-c="content"><div class="t mono"><span class="k">Gʻoya</span><span>08</span></div><h4>Kontent va ssenariy</h4><p>Gʻoya, ssenariy, hook va reels formulasi. Videoning boshidan oxirigacha oʻylayman.</p><div class="pills"><span>Ssenariy</span><span>Hook</span><span>Reels</span></div></div>
+    </div>
+
+    <div class="fun">
+      <div class="cube" id="cube" title="Bosing: aralashtiradi"></div>
+      <div>
+        <span class="tag">Kichik fakt</span>
+        <h4>Rubik kubigini 28 soniyada yechaman</h4>
+        <p>Odatda 30–40 soniya ketadi, rekordim 28 soniya. Montajda ham shunday: tez, lekin tartib bilan. Kubikni bosib koʻring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-index mono">04 / 04 — Aloqa</div>
+    <span class="tag">Bogʻlanish</span>
+    <h2>Keling, <em>zoʻr narsa</em> yaratamiz.</h2>
+    <p class="sub">Video gʻoyangiz bormi? Maqsadingizni qisqa yozib yuboring yoki qoʻngʻiroq qiling.</p>
+    <div class="cards-c">
+      <div class="cc">
+        <div class="mono">Telefon</div>
+        <strong>+998 88 326 66 33</strong>
+        <div class="row">
+          <a class="btn gold" href="tel:+998883266633">Qoʻngʻiroq</a>
+          <button class="btn copy" data-v="+998 88 326 66 33">Nusxalash</button>
+        </div>
+      </div>
+      <div class="cc">
+        <div class="mono">Telegram</div>
+        <strong>@sherzodbew</strong>
+        <div class="row">
+          <a class="btn gold" href="https://t.me/sherzodbew" target="_blank" rel="noopener">Yozish →</a>
+          <button class="btn copy" data-v="@sherzodbew">Nusxalash</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Sherzodbek · bew. Qoʻqon, Oʻzbekiston.</footer>
+
+<script>
+// timecode (25 fps)
+(() => {
+  const el = document.getElementById("tc"), t0 = performance.now();
+  const p = n => String(n).padStart(2, "0");
+  setInterval(() => {
+    const f = Math.floor((performance.now() - t0) / 40);
+    el.textContent = p(Math.floor(f / 90000) % 24) + ":" + p(Math.floor(f / 1500) % 60) + ":" + p(Math.floor(f / 25) % 60) + ":" + p(f % 25);
+  }, 40);
+})();
+
+// timeline
+const steps = [
+  ["Gʻoya","Avval maqsad: video kimga va nima uchun. Keyin bitta kuchli gʻoya tanlanadi."],
+  ["Ssenariy","Hook, asosiy qism va CTA. Har bir gap kadrga bogʻlanadi."],
+  ["Syomka","FX30, Ronin RS4 va Lark M2 bilan obyektda, ofisda yoki tadbirda syomka."],
+  ["Motion / titr","Kerak joyda After Effects’da motion grafika va kinetik matn."],
+  ["Rang","DaVinci Resolve’da rang berish: telefonda ham, katta ekranda ham chiroyli koʻrinishi uchun."],
+  ["Natija","Tayyor reels chiqadi. Keyin natijaga qarab keyingisi yanada yaxshi qilinadi."],
+  ["Ovoz","Musiqa, SFX va ovoz balansi. Yaxshi ovozsiz yaxshi video boʻlmaydi."]
+];
+const info = document.getElementById("tlInfo");
+function showStep(i){
+  info.innerHTML = '<span class="mono k">Klip 0'+(i+1)+'</span><div><h4>'+steps[i][0]+'</h4><p>'+steps[i][1]+'</p></div>';
+  document.querySelectorAll(".clip").forEach(c=>c.classList.toggle("on", +c.dataset.i===i));
+}
+document.getElementById("tl").addEventListener("click", e=>{const c=e.target.closest(".clip"); if(c) showStep(+c.dataset.i);});
+showStep(2);
+
+// skill filter
+document.getElementById("filters").addEventListener("click", e=>{
+  const b=e.target.closest(".chip"); if(!b) return;
+  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on", c===b));
+  document.querySelectorAll(".cell").forEach(c=>c.classList.toggle("hide", b.dataset.f!=="all" && c.dataset.c!==b.dataset.f));
+});
+
+// rubik
+(() => {
+  const cube = document.getElementById("cube");
+  const cols = ["#efe7da","#c9a86a","#5b1a24","#2f5d50","#1f3557","#b8642e"];
+  const cells = Array.from({length:9}, () => cube.appendChild(document.createElement("i")));
+  const solved = () => cells.forEach(c => c.style.background = cols[1]);
+  const shuffle = () => cells.forEach(c => c.style.background = cols[Math.floor(Math.random()*cols.length)]);
+  shuffle();
+  let solving = false;
+  cube.addEventListener("click", () => {
+    if (solving) return; solving = true;
+    let n = 0; const id = setInterval(() => { shuffle(); if (++n > 8) { clearInterval(id); solved(); setTimeout(() => { shuffle(); solving = false; }, 1600); } }, 90);
+  });
+})();
+
+// Swarm Rebuild (Chrome extension) helper:
+// when the swarm starts, pause our own animations and switch on its "Tour" (auto-scroll) mode,
+// so the whole page gets rebuilt top to bottom like in the reference video.
+(() => {
+  const root = document.documentElement;
+  let toured = false;
+  const check = () => {
+    const host = document.querySelector("swarm-rebuild");
+    root.classList.toggle("swarm-on", !!host);
+    if (!host) { toured = false; return; }
+    if (toured) return;
+    const sr = host.shadowRoot;
+    const tour = sr && sr.querySelector('[data-a="tour"]');
+    if (tour && !tour.hidden) {
+      toured = true;
+      setTimeout(() => { if (!tour.classList.contains("on")) tour.click(); }, 1800);
+    }
+  };
+  new MutationObserver(check).observe(document.documentElement, { childList: true, subtree: true });
+})();
+
+// copy buttons
+document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(b.dataset.v); b.textContent = "Nusxalandi ✓"; }
+  catch (_) { b.textContent = b.dataset.v; }
+}));
+</script>
+</body>
+</html>
